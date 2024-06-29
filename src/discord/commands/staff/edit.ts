@@ -3,14 +3,14 @@ import { createModalFields } from "@magicyan/discord";
 import { ApplicationCommandOptionType, ModalBuilder, TextInputStyle } from "discord.js";
 
 new Command({
-    name: "criar",
-    description: "Comando de Criação",
+    name: "editar",
+    description: "Comando de Edição",
     options: [
         {
             name: "produto",
-            description: "Criar Produto",
+            description: "Editar Produto",
             type: ApplicationCommandOptionType.Subcommand
-        },
+        }
     ],
     defaultMemberPermissions: ["Administrator"],
     async run(interaction) {
@@ -20,12 +20,12 @@ new Command({
         switch (subCommand) {
             case "produto": {
                 const modal = new ModalBuilder({
-                    customId: "modal/create/product",
-                    title: "Criação de Produto",
+                    customId: "modal/edit/product",
+                    title: "Edição de Produto",
                     components: createModalFields({
                         productId: {
                             label: "ID",
-                            placeholder: "Por favor, informe um ID para o produto",
+                            placeholder: "Por favor, informe um ID de produto",
                             maxLength: 15,
                             minLength: 1,
                             style: TextInputStyle.Short,

@@ -1,4 +1,4 @@
-import { DatabaseSchema, ProductSchema, db } from "#database";
+import { DatabaseSchema, db } from "#database";
 
 type SetData = DatabaseSchema["products"]["AssignArg"];
 type UpdateData = DatabaseSchema["products"]["UpdateData"];
@@ -18,6 +18,7 @@ export async function updateProductData(productId: string, data: UpdateData) {
 
 export function formatProductData(data: ProductSchema) {
     return {
+        id: data.id,
         name: data.name,
         description: data.description,
         price: formatProductPrice(data.price),
