@@ -1,5 +1,5 @@
 interface SystemSales {
-    roleId: string;
+    roleSalesId: string;
     channelSalesPublicId: string;
     channelSalesPrivateId: string;
 }

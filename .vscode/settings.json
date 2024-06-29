@@ -18,7 +18,9 @@
     "mongodb": "Database",
     "mysql": "Database",
     "quickdb": "Json",
-    "responders": "Meta"
+    "responders": "Meta",
+    "buttons": "Components",
+    "selects": "Components",
   },
   "material-icon-theme.files.associations": {
     "firebase.development.json": "Firebase",
@@ -38,4 +40,5 @@
   "typescript.suggest.autoImports": true,
   "window.title": "${rootName}${separator}${appName}",
   "files.autoSave": "afterDelay",
+  "svg.preview.background": "dark-transparent"
 }

@@ -29,7 +29,9 @@ export const db = schema(({ collection }) => ({
 }));
 
 export type DatabaseSchema = Typesaurus.Schema<typeof db>;
+export type GuildSchema = DatabaseSchema["guilds"]["Data"];
 export type ProductSchema = DatabaseSchema["products"]["Data"];
 
 export * from "./functions/products.js";
+export * from "./functions/guilds.js";
 

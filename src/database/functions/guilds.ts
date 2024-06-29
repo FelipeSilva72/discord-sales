@@ -1,7 +1,7 @@
 import { DatabaseSchema, db } from "#database";
 import { Guild } from "discord.js";
 
-type SetData = DatabaseSchema["guilds"]["AssignArg"];
+type UpsetData = DatabaseSchema["guilds"]["AssignArg"];
 type UpdateData = DatabaseSchema["guilds"]["UpdateData"];
 
 export async function getGuildData(guild: Guild) {
@@ -9,8 +9,8 @@ export async function getGuildData(guild: Guild) {
     return { data: guildDocument?.data };
 }
 
-export async function setGuildData(guild: Guild, data: SetData) {
-    return await db.guilds.set(db.guilds.id(guild.id), data);
+export async function upsetGuildData(guild: Guild, data: UpsetData) {
+    return await db.guilds.upset(db.guilds.id(guild.id), data);
 }
 
 export async function updateGuildData(guild: Guild, data: UpdateData) {

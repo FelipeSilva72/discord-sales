@@ -1,4 +1,4 @@
-import { DatabaseSchema, db } from "#database";
+import { DatabaseSchema, ProductSchema, db } from "#database";
 
 type SetData = DatabaseSchema["products"]["AssignArg"];
 type UpdateData = DatabaseSchema["products"]["UpdateData"];
@@ -14,6 +14,10 @@ export async function setProductData(productId: string, data: SetData) {
 
 export async function updateProductData(productId: string, data: UpdateData) {
     return await db.products.update(db.products.id(productId), data);
+}
+
+export async function removeProductData(productId: string) {
+    return await db.products.remove(db.products.id(productId));
 }
 
 export function formatProductData(data: ProductSchema) {
