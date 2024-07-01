@@ -4,6 +4,7 @@ import firebase from "firebase-admin";
 import fs from "node:fs";
 import path from "node:path";
 import { schema, Typesaurus } from "typesaurus";
+import { CouponDocument } from "./documents/CouponDocument.js";
 import { GuildDocument } from "./documents/GuildDocument.js";
 import { ProductDocument } from "./documents/ProductDocument.js";
 
@@ -25,13 +26,16 @@ firebase.initializeApp({ credential: firebase.credential.cert(firebaseAccount) }
 
 export const db = schema(({ collection }) => ({
     guilds: collection<GuildDocument>(),
-    products: collection<ProductDocument>()
+    products: collection<ProductDocument>(),
+    coupons: collection<CouponDocument>()
 }));
 
 export type DatabaseSchema = Typesaurus.Schema<typeof db>;
 export type GuildSchema = DatabaseSchema["guilds"]["Data"];
 export type ProductSchema = DatabaseSchema["products"]["Data"];
+export type CouponSchema = DatabaseSchema["coupons"]["Data"];
 
-export * from "./functions/products.js";
+export * from "./functions/coupons.js";
 export * from "./functions/guilds.js";
+export * from "./functions/products.js";
 
